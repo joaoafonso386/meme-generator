@@ -2,7 +2,8 @@ import "./App.css";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import SearchInput from "./SearchInput";
+import SearchMeme from "./components/SearchMeme";
+import CatMemes from "./components/CatMemes";
 
 function App() {
   const [imgsArray, setImagesArray] = useState([]);
@@ -23,7 +24,7 @@ function App() {
   useEffect(() => {
     axios.get("https://api.imgflip.com/get_memes").then((response) => {
       const { memes } = response.data.data;
-      const { name, url } = memes[Math.floor(Math.random() * imgsArray.length)];
+      const { name, url } = memes[7];
       setImagesArray(memes);
       setImage({
         name: name,
@@ -38,8 +39,9 @@ function App() {
         <h1>{img.name}</h1>
         <img width="400px" src={img.url} alt="" />
       </div>
+      <SearchMeme setImage={setImage} />
       <button onClick={generateImg}>Generate</button>
-      <SearchInput setImage={setImage} />
+      <CatMemes memes={imgsArray} />
     </div>
   );
 }
