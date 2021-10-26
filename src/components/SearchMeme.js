@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./SearchMeme.css";
 
 const SearchMeme = ({ setImage, placeholder }) => {
@@ -34,9 +34,7 @@ const SearchMeme = ({ setImage, placeholder }) => {
               value={searchTerm}
               placeholder={`Search for ${placeholder}`}
             />
-            <i className="ui button" onClick={searchImg}>
-              Search
-            </i>
+            <i className="search icon" onClick={searchImg}></i>
           </div>
         </form>
       </div>

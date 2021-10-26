@@ -6,6 +6,14 @@
 
 .img-container {
   text-align: center;
+  width: 1000px !important;
+}
+
+.img-container img {
+  object-fit: cover;
+  max-width: 600px;
+  height: 400px;
+
 }
 
 .button-container {

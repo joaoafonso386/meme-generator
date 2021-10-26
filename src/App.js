@@ -42,7 +42,7 @@ function App() {
       </div>
       <div className="ui img-container raised very padded text container segment">
         <h2 className="ui header">{img.name}</h2>
-        <img width="400px" src={img.url} alt="" />
+        <img src={img.url} alt="" />
       </div>
       <div className="ui container">
         <SearchMeme placeholder={placeholder} setImage={setImage} />
