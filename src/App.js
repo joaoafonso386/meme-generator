@@ -40,7 +40,7 @@ function App() {
         <img width="400px" src={img.url} alt="" />
       </div>
       <SearchMeme setImage={setImage} />
-      <button onClick={generateImg}>Generate</button>
+      <button onClick={generateImg}>Generate Random Meme</button>
       <CatMemes memes={imgsArray} />
     </div>
   );

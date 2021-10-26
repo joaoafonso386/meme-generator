@@ -21,12 +21,15 @@ const SearchMeme = ({ setImage }) => {
   return (
     <div>
       <form onSubmit={searchImg}>
-        <label>Search by name</label>
-        <input
-          type="text"
-          onChange={(e) => setSearchTerm(e.target.value)}
-          value={searchTerm}
-        />
+        <label>Search Meme by name</label>
+        <div class="ui fluid icon input">
+          <input
+            type="text"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
+          />
+          <i class="ui button">Search</i>
+        </div>
       </form>
     </div>
   );
