@@ -11,15 +11,7 @@ function App() {
     name: "",
     url: "",
   });
-
-  const generateImg = () => {
-    const randomMeme = imgsArray[Math.floor(Math.random() * imgsArray.length)];
-    const { name, url } = randomMeme;
-    setImage({
-      name: name,
-      url: url,
-    });
-  };
+  const [placeholder, setPlaceholder] = useState("");
 
   useEffect(() => {
     axios.get("https://api.imgflip.com/get_memes").then((response) => {
@@ -30,18 +22,38 @@ function App() {
         name: name,
         url: url,
       });
+      setPlaceholder(memes[Math.floor(Math.random() * memes.length)].name);
     });
   }, [imgsArray.length]);
 
+  const generateImg = () => {
+    const randomMeme = imgsArray[Math.floor(Math.random() * imgsArray.length)];
+    const { name, url } = randomMeme;
+    setImage({
+      name: name,
+      url: url,
+    });
+  };
+
   return (
     <div className="App">
-      <div>
-        <h1>{img.name}</h1>
+      <div className="ui dividing header app-title container">
+        <h1>Meme Generator App</h1>
+      </div>
+      <div className="ui img-container raised very padded text container segment">
+        <h2 className="ui header">{img.name}</h2>
         <img width="400px" src={img.url} alt="" />
       </div>
-      <SearchMeme setImage={setImage} />
-      <button onClick={generateImg}>Generate Random Meme</button>
-      <CatMemes memes={imgsArray} />
+      <div className="ui container">
+        <SearchMeme placeholder={placeholder} setImage={setImage} />
+        <button
+          className="ui button-container inverted orange button"
+          onClick={generateImg}
+        >
+          Generate Random Meme
+        </button>
+        <CatMemes memes={imgsArray} />
+      </div>
     </div>
   );
 }
