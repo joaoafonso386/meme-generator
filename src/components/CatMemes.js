@@ -7,7 +7,13 @@ const CatMemes = ({ memes }) => {
       <div className="four wide column" key={meme.id}>
         <div className="ui container-img segment">
           <h3>{meme.name}</h3>
-          <img className="ui rounded image" src={meme.url} alt="" />
+          <img
+            className={`${
+              meme.id === "188390779" ? "format" : ""
+            } ui rounded image`}
+            src={meme.url}
+            alt=""
+          />
         </div>
       </div>
     ) : (

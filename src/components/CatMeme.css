@@ -14,3 +14,8 @@
 .cat-title {
   margin-bottom: 40px;
 }
+
+.format {
+  object-position: -410px -108px !important;
+  object-fit: none !important;
+}
